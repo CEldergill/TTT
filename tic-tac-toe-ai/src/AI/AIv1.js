@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const Ai = ({ board, onAiMove, gameOver }) => {
   useEffect(() => {
@@ -11,10 +11,15 @@ const Ai = ({ board, onAiMove, gameOver }) => {
       }
 
       if (availableMoves.length > 0) {
+
+        // algorithm for AI move determination goes here, using availableMoves index for reference. Can also use board[i] to get a full picture of the state of the board (friendly and opponent).
+
+        // example below is random moves
+
         const randomIndex = Math.floor(Math.random() * availableMoves.length);
         const randomMove = availableMoves[randomIndex];
 
-        onAiMove(randomMove); // Notify the parent component of the AI move
+        onAiMove(randomMove);
       }
     }
   }, [board, onAiMove, gameOver]);
